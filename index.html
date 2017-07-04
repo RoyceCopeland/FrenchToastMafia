@@ -2,38 +2,46 @@
 <html lang="en-us">
 
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<title>French Toast Mafia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>French Toast Mafia</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-	<!--container: there will be a globe from css, pin of players location (dynamic js).  Note: the H1 will surround this.-->
-	<div class="container">
-		<div><h1 id="fireLocation">Here you are!</h1></div>
-		<!--div referencing the google firing point (currentLocation)-->
-		<div id="currentLocation"></div>
-		<!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
-		<div id="globalCoordinats"></div>
-		<div id="whoElse"></div>
-	
-
-		<!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
+    <!--container: there will be a globe from css, pin of players location (dynamic js).  Note: the H1 will surround this.-->
+    <div class="container">
+       
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Temporary Google Map location panel</h3>
+            </div>
+            <div id="map" class="panel-body">
+            </div>
+        </div>
+        <div>
+            <h1 id="fireLocation">Here you are!</h1>
+        </div>
+        <!--div referencing the google firing point (currentLocation)-->
+        <div id="currentLocation"></div>
+        <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
+        <div id="globalCoordinats"></div>
+        <div id="whoElse"></div>
+        <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
 
 		<!-user selectes favorite image to mimic and a new page opens-->
-	
-		<h1 id="precision">How Precise Can You Be? We Will See!</h1>
-		<!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
-
-		<!--We've got to figure out how to access the computer camera to align with the selected image-->
-
-		<!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
-		<div id="score"></div>
-
-	</div>
-	
-
-<script type="text/javascript" src="royce.js"></script>
-<script type="text/javascript" src="josh.js"></script>
+        <h1 id="precision">How Precise Can You Be? We Will See!</h1>
+        <!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
+        <!--We've got to figure out how to access the computer camera to align with the selected image-->
+        <!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
+        <div id="score"></div>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug&callback=initMap">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="royce.js"></script>
+    <script type="text/javascript" src="josh.js"></script>
 </body>
+
 </html>
