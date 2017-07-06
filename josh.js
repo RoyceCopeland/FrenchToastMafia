@@ -18,7 +18,9 @@ https://github.com/mikefowler/instajam
 */
 
 // Initialize
-API = Instajam.init({
+
+
+/*API = Instajam.init({
     clientId: '<CLIENT ID>',
     redirectUri: '<REDIRECT URI>',
     scope: ['basic', 'comments']
@@ -36,8 +38,8 @@ https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_
 
 
 
-$(document).on('click', '.results', function() {
-
+/*$(document).on('click', '.results', function() {
+*
             var igSearch = $(this).html();
 
 
@@ -47,14 +49,14 @@ $(document).on('click', '.results', function() {
                 .done(function(response) {
                     /* grabs the data */
                      
-                    var results = response.data;
+                    /*var results = response.data;
 
                     /* empties the div before adding more gifs */
                      
-                    $('#failView').empty();
+                    /*$('#igresultsView').empty();
                     /* loops through the data */
                      
-                    for (var j = 0; j < results.length; j++) {
+                    /*for (var j = 0; j < results.length; j++) {
                         var imageDiv = $('<div>');
                         var imageView = results[j].images.fixed_height.url;
                         var still = results[j].images.fixed_height_still.url;
@@ -63,6 +65,7 @@ $(document).on('click', '.results', function() {
                         failImage.attr('data-state', 'still');
                         $('#failView').prepend(failImage);
                         failImage.on('click', playGif);
+*/
 
 
 
