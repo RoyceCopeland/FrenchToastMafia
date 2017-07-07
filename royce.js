@@ -27,7 +27,7 @@ var infoWindow;
 var pos;
 var lat;
 var lng;
-
+var locationID;
 
 function initMap() {
 
@@ -49,9 +49,6 @@ function initMap() {
 
 
                 console.log(pos);
-                //  console.log("lat=" + pos.lat);
-                //  console.log("lng=" + pos.lng);
-
 
 
                 // stringify to change the value into a string
@@ -63,17 +60,13 @@ function initMap() {
                     console.log(userInput);
 
                     // var latlng = pos.toString(); {
-
                     $("#latlng").val(lat + " & " + lng);
 
 
                     //  function calling Instagram locations/search API
-
-
                     $("#submit").on("click", function(getIGlocation) {
 
 
-                        //            var userInput = $(this).text();
                         searchIGlocation(userInput);
                     });
 
@@ -85,16 +78,25 @@ function initMap() {
                                 type: 'GET',
                             })
                             .done(function(response) {
+
                                 console.log(response);
-                                console.log(response.data[0].name);
-                                console.log(response.data[0].id);
+                                console.log(response.data.name);
+                                console.log(response.data.id);
+                                var locationID = response.data.id;
+                                searchLocationID(locationID);
+                                //           createLocationButton();
 
+                                //                 function(createLocationButton) {
+                                //                     for (var i = 0; i < response.length; i++) {
+                                //                         response[i];
+                                //                         $("<button>")
+                                //                             .addClass("locationButton btn btn-success")
+                                //                             .text(response[i])
+                                //                             .appendTo("#buttonPanel");
+                                //                         console.log(createLocationButton);
 
-                            })
+                            });
 
-                        //            	var IGid = data.[0].id;
-                        //                  searchLocationID(response);
-                        //                  console.log(IGid);
                     }
                 }
 
@@ -114,13 +116,15 @@ function initMap() {
                 function searchLocationID(locationID) {
 
                     $.ajax({
-                            url: "https://api.instagram.com/v1/locations/" + locationID.name + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                            url: "https://api.instagram.com/v1/locations/" + locationID + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
                             type: 'GET',
                         })
                         .done(function(result) {
-                            //             console.log(result.data);
+                            console.log(result);
                         })
                 }
+
+searchLocationID();
 
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Location found.');
