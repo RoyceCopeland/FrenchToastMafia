@@ -48,21 +48,43 @@ function initMap() {
 
 
                 console.log(pos);
-              //  console.log("lat=" + pos.lat);
-              //  console.log("lng=" + pos.lng);
+                //  console.log("lat=" + pos.lat);
+                //  console.log("lng=" + pos.lng);
 
 
 
-
+                // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
                     console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
                     console.log(lng);
+                    var userInput = lat + "&" + lng;
+
+                    // var latlng = pos.toString(); {
+
+                    $("#latlng").val(lat + " & " + lng);
 
 
-                    //         var latlng = pos.toString(); {
+                    //  function calling Instagram locations/search API
 
-                    $("#latlng").val(lat + ", " + lng);
+                    $("#submit").on("click", function(getIGlocation) {
+
+
+            //            var userInput = $(this).text();
+                        searchIGlocation(userInput);
+                    });
+
+
+                    function searchIGlocation(lat, lng) {
+          
+                        $.ajax({
+                                url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                                type: 'GET',
+                            })
+                            .done(function(response) {
+                                displayGif(response);
+                            })
+                    }
                 };
 
                 infoWindow.setPosition(pos);
@@ -74,19 +96,11 @@ function initMap() {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
 
-
     } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
-
-
-
 };
-
-
-
-
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -97,44 +111,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 };
 
 // end Google geoLocation script
-
-
-// begin Google Reverse Geeocoding script
-
-//function initMap() {
-//    var map = new google.maps.Map(document.getElementById('map'), {
-//        zoom: 8,
-//        center: { lat: 40.731, lng: -73.997 }
-//    });
-//    var geocoder = new google.maps.Geocoder;
-//    var infowindow = new google.maps.InfoWindow;
-//
-//    document.getElementById('submit').addEventListener('click', function() {
-//        geocodeLatLng(geocoder, map, infowindow);
-//    });
-//}
-//
-//function geocodeLatLng(geocoder, map, infowindow) {
-//    var input = document.getElementById('latlng').value;
-//    var latlngStr = input.split(',', 2);
-//    var latlng = { lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1]) };
-//    geocoder.geocode({ 'location': latlng }, function(results, status) {
-//        if (status === 'OK') {
-//            if (results[1]) {
-//                map.setZoom(11);
-//                var marker = new google.maps.Marker({
-//                    position: latlng,
-//                    map: map
-//                });
-//                infowindow.setContent(results[1].formatted_address);
-//                infowindow.open(map, marker);
-//            } else {
-//                window.alert('No results found');
-//            }
-//        } else {
-//            window.alert('Geocoder failed due to: ' + status);
-//        }
-//    });
-//}
-
-// end Google Reverse Geocoding script
