@@ -7,8 +7,6 @@ $.ajax({
     console.log(result.data);
 })
 
-<<<<<<< HEAD
-=======
     
 
 
@@ -162,4 +160,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 };
 
 // end Google geoLocation script
->>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+//>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
