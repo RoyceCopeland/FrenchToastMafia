@@ -28,6 +28,7 @@ var pos;
 var lat;
 var lng;
 
+
 function initMap() {
 
 
@@ -68,6 +69,7 @@ function initMap() {
 
                     //  function calling Instagram locations/search API
 
+
                     $("#submit").on("click", function(getIGlocation) {
 
 
@@ -84,29 +86,41 @@ function initMap() {
                             })
                             .done(function(response) {
                                 console.log(response);
-                                searchLocationID(response);
+                                console.log(response.data[0].name);
+                                console.log(response.data[0].id);
+
+
                             })
+
+                        //            	var IGid = data.[0].id;
+                        //                  searchLocationID(response);
+                        //                  console.log(IGid);
                     }
+                }
 
+                // pulls array of objects containing ...
+                // 	id: ""
+                //	latitude:
+                //	longitude:
+                //	name: ""
 
-                    function searchLocationID(locationID) {
-
-                        $.ajax({
-                                url: "https://api.instagram.com/v1/locations/" + locationID.name + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                                type: 'GET',
-                            })
-                            .done(function(result) {
-                   //             console.log(result.data);
-                            })
-                    }
-
+                // dynamically create a button for each name of the top 10 objects with
+                // Instagram ID info attached as a value(?)
 
 
 
 
 
+                function searchLocationID(locationID) {
 
-                };
+                    $.ajax({
+                            url: "https://api.instagram.com/v1/locations/" + locationID.name + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                            type: 'GET',
+                        })
+                        .done(function(result) {
+                            //             console.log(result.data);
+                        })
+                }
 
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Location found.');
