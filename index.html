@@ -12,11 +12,10 @@
 <body>
     <form id="form">
         <input type="text" id="search" />
-        </form>
-        <div id="instagram"></div>
+    </form>
+    <div id="instagram"></div>
     <!--container: there will be a globe from css, pin of players location (dynamic js).  Note: the H1 will surround this.-->
     <div class="container">
-       
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Temporary Google Map location panel</h3>
@@ -24,21 +23,26 @@
             <div id="map" class="panel-body">
             </div>
         </div>
-<p></p>
+        <p></p>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Temporary Google Reverse Geocoding panel</h3>
                 <p></p>
                 <div id="floating-panel">
+<<<<<<< HEAD
+                    <input id="latlng" type="text" value="">
+                    <input id="submit" type="button" value="Reverse Geocode">
+                </div>
+=======
       <input id="latlng" type="text" value="">
       <input id="submit" type="button" value="Submit">
     </div>
+>>>>>>> 83926acda7158e853f6de23511e7d2e125a676b2
             </div>
             <div id="reverseGeocodingMap" class="panel-body">
             </div>
         </div>
-<p></p>
-
+        <p></p>
         <div>
             <h1 id="fireLocation">Here you are!</h1>
         </div>
@@ -49,9 +53,7 @@
         <div id="whoElse"></div>
         <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
 
-		<!-user selectes favorite image to mimic and a new page opens-->
-
-
+        <!-user selectes favorite image to mimic and a new page opens-->
         <h1 id="precision">How Precise Can You Be? We Will See!</h1>
         <!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
         <!--We've got to figure out how to access the computer camera to align with the selected image-->
@@ -60,14 +62,11 @@
     </div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug&callback=initMap">
     </script>
-    
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <script type="text/javascript" src="royce.js"></script>
     <script type="text/javascript" src="josh.js"></script>
     <script type="text/javascript" src="FILES FOR TESTING/instagramtest.js"></script>
-    
-
 </body>
 
 </html>
