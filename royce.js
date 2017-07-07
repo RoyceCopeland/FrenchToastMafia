@@ -68,38 +68,37 @@ function initMap() {
 
                     //  function calling Instagram locations/search API
 
-                $("#submit").on("click", function(getIGlocation) {
+                    $("#submit").on("click", function(getIGlocation) {
 
 
-        //            var userInput = $(this).text();
-                    searchIGlocation(userInput);
-                });
+                        //            var userInput = $(this).text();
+                        searchIGlocation(userInput);
+                    });
 
 
-                function searchIGlocation(userInput) {
-      
-                    $.ajax({
-                            url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                            type: 'GET',
-                        })
-                        .done(function(response) {
-               //            console.log(response);
-                            searchLocationID(response);
-                        })
-                }
-            
+                    function searchIGlocation(userInput) {
 
-    function searchLocationID(locationID) {
-      
-                    $.ajax({
-                            url: "https://api.instagram.com/v1/locations/"+locationID.data.data.data.stuff+"?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                            type: 'GET',
-                        })
-                        .done(function(result) {
-                           console.log(result.data);
-        //                    displayGif(response);
-                        })
-                }
+                        $.ajax({
+                                url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                                type: 'GET',
+                            })
+                            .done(function(response) {
+                                console.log(response);
+                                searchLocationID(response);
+                            })
+                    }
+
+
+                    function searchLocationID(locationID) {
+
+                        $.ajax({
+                                url: "https://api.instagram.com/v1/locations/" + locationID.name + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                                type: 'GET',
+                            })
+                            .done(function(result) {
+                   //             console.log(result.data);
+                            })
+                    }
 
 
 
