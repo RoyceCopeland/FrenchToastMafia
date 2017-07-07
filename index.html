@@ -18,56 +18,57 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">This is a temporary Google Map location panel</h3>
-            </div>
-            <div id="map" class="panel-body">
-            </div>
-        </div>
-        <p></p>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Temporary Google Reverse Geocoding panel</h3>
                 <p></p>
                 <div id="floating-panel">
-
-                    <input id="latlng" type="text" value="">
-                    <input id="submit" type="button" value="Reverse Geocode">
+                    <h3 class="panel-title">This is a temporary Google Map location panel</h3>
                 </div>
-      <input id="latlng" type="text" value="">
-      <input id="submit" type="button" value="Submit">
-    </div>
+                <div id="map" class="panel-body">
+                </div>
             </div>
-            <div id="reverseGeocodingMap" class="panel-body">
+                   </div>
+
+            <p></p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Temporary container to display Lat Lng coordinates</h3>
+                </div>
+                <div id="reverseGeocodingMap" class="panel-body">
+                    <input id="latlng" type="text" value="">
+                    <input id="submit" type="button" value="Submit Coordinates">
+                </div>
             </div>
-        </div>
-        <p></p>
-        <div>
-            <h1 id="fireLocation">Here you are!</h1>
-        </div>
-        <!--div referencing the google firing point (currentLocation)-->
-        <div id="currentLocation"></div>
-        <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
-        <div id="globalCoordinats"></div>
-        <div id="whoElse"></div>
-        <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Temporary container to hold location results</h3>
+                </div>
+                <div id="locationResults" class="panel-body">
+                </div>
+            </div>
+            <p></p>
+            <div>
+                <h1 id="fireLocation">Here you are!</h1>
+            </div>
+            <!--div referencing the google firing point (currentLocation)-->
+            <div id="currentLocation"></div>
+            <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
+            <div id="globalCoordinats"></div>
+            <div id="whoElse"></div>
+            <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
 
         <!-user selectes favorite image to mimic and a new page opens-->
-        <h1 id="precision">How Precise Can You Be? We Will See!</h1>
-        <!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
-        <!--We've got to figure out how to access the computer camera to align with the selected image-->
-        <!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
-        <div id="score"></div>
+            <h1 id="precision">How Precise Can You Be? We Will See!</h1>
+            <!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
+            <!--We've got to figure out how to access the computer camera to align with the selected image-->
+            <!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
+            <div id="score"></div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <script type="text/javascript" src="royce.js"></script>
     <script type="text/javascript" src="josh.js"></script>
     <script type="text/javascript" src="FILES FOR TESTING/instagramtest.js"></script>
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug&callback=initMap">
     </script>
-    
-
 </body>
 
 </html>
