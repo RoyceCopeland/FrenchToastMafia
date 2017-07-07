@@ -76,7 +76,7 @@ function initMap() {
                 });
 
 
-                function searchIGlocation(lat, lng) {
+                function searchIGlocation(userInput) {
       
                     $.ajax({
                             url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
@@ -89,10 +89,10 @@ function initMap() {
                 }
             
 
-    function searchLocationID(response) {
+    function searchLocationID(locationID) {
       
                     $.ajax({
-                            url: "https://api.instagram.com/v1/locations/{location-id}?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                            url: "https://api.instagram.com/v1/locations/"+locationID.data.data.data.stuff+"?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
                             type: 'GET',
                         })
                         .done(function(result) {
