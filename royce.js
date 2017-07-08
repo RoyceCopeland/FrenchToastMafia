@@ -31,8 +31,6 @@ var locationID;
 
 function initMap() {
 
-
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 6
@@ -50,7 +48,7 @@ function initMap() {
 
                 console.log(pos);
 
-
+//THIS IS A SHITTY CHANGE TO TEST GIT HUB
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
                     console.log(lat);
@@ -111,7 +109,7 @@ function initMap() {
 
 
 
-
+// need an on click function for the multiple buttons generated from the searchIGLocation function
 
                 function searchLocationID(locationID) {
 
@@ -124,7 +122,7 @@ function initMap() {
                         })
                 }
 
-searchLocationID();
+                searchLocationID();
 
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Location found.');
