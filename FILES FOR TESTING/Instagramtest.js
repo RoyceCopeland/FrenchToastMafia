@@ -4,7 +4,12 @@ $.ajax({
     type: "GET",
     url: query2
 }).done(function(result) {
-    console.log(result.data);
+	for (var i = 0; i < 5; i++) {
+		result[i];
+		console.log(result.data[i]);
+
+	}
+    
 })
 
 
@@ -92,25 +97,13 @@ function initMap() {
                     });
 
 
-                    function searchIGlocation(userInput) {
 
-                        $.ajax({
-                                url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                                type: 'GET',
-                            })
-                            .done(function(response) {
-                                console.log(response);
-                                console.log(response.data[0].name);
-                                console.log(response.data[0].id);
-
-
-                            })
 
                         //            	var IGid = data.[0].id;
                         //                  searchLocationID(response);
                         //                  console.log(IGid);
                     }
-                }
+                
 
                 // pulls array of objects containing ...
                 // 	id: ""
@@ -135,6 +128,7 @@ function initMap() {
                             console.log(result.data);
                         })
                 }
+
 
 
 
