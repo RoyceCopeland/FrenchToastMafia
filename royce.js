@@ -48,7 +48,7 @@ function initMap() {
 
                 console.log(pos);
 
-
+//THIS IS A SHITTY CHANGE TO TEST GIT HUB
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
                     console.log(lat);
