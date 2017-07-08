@@ -1,7 +1,39 @@
-#fireLocation {
-	float: left; 
+body, html {
+	background-image: url("images/instagramBackground.jpeg");
+	height: 100%;
+	width: 100%;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
-
- #map {
-        height: 300px;
-      }
+.container {
+  background: url("images/circleWorld.png"),("images/instagramBackground.jpeg");
+  background-position: 0 0, 0 -10px;
+  background-blend-mode: screen;
+}
+#fireLocation {
+	padding: 10px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+#vertical {
+	vertical-align: center;
+}
+#location {
+	text-align: center;
+}
+#circleWorld img {
+	border: 10px;
+	border-radius: 5%;
+}
+#precision {
+	text-align: center;
+}
+#whoElse {
+	position: relative;
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	margin: 24px;
+}

@@ -7,48 +7,57 @@
     <title>French Toast Mafia</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
 <body>
-    <!--container: there will be a globe from css, pin of players location (dynamic js).  Note: the H1 will surround this.-->
+    <!--container: the map is just for show as well as the pin drop.-->
     <div class="container">
-       
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Temporary Google Map location panel</h3>
+        <div class="row" id="currentLocation">
+            <div class="col-md-6" id="circleWorld">
+                <img src="images/circleWorld.png" width="500" height="275" alt="Crazy Picture of Earth">
             </div>
-            <div id="map" class="panel-body">
-            </div>
-        </div>
-<p></p>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Temporary Google Reverse Geocoding panel</h3>
-                <p></p>
-                <div id="floating-panel">
-      <input id="latlng" type="text" value="">
-      <input id="submit" type="button" value="Reverse Geocode">
-    </div>
-            </div>
-            <div id="reverseGeocodingMap" class="panel-body">
-            </div>
-        </div>
-<p></p>
 
-        <div>
-            <h1 id="fireLocation">Here you are!</h1>
+            <div class="col-md-6" id="vertical">
+                <div class="row">
+                    <div class= "col-md-12" id="fireLocation">
+                        <h1>Here you are!</h1>
+                    </div>
+                </div>
+
+                <!--This is the actual firing of the user's location-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-heading" id="location">
+                            <h3 class="panel-title">Temporary Google Reverse Geocoding panel</h3>
+                    
+                            <div id="floating-panel">
+                                <input id="latlng" type="text" value="">
+                                <input id="submit" type="button" value="Reverse Geocode">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--div referencing the google firing point (currentLocation)-->
-        <div id="currentLocation"></div>
+        
         <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
-        <div id="globalCoordinats"></div>
-        <div id="whoElse"></div>
+        
+        <div class="row" id="whoElse">
+            <h1 id="precision">How Precise Can You Be? We Will See!</h1>
+            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
+            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
+            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
+            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
+            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
+            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
+        </div>
         <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
 
 		<!-user selectes favorite image to mimic and a new page opens-->
 
 
-        <h1 id="precision">How Precise Can You Be? We Will See!</h1>
+        
         <!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
         <!--We've got to figure out how to access the computer camera to align with the selected image-->
         <!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
