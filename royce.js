@@ -46,16 +46,15 @@ function initMap() {
                 };
 
 
-                console.log(pos);
+                //         console.log(pos);
 
-//THIS IS A SHITTY CHANGE TO TEST GIT HUB
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
-                    console.log(lat);
+                    //             console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
-                    console.log(lng);
+                    //             console.log(lng);
                     var userInput = lat + "&" + lng;
-                    console.log(userInput);
+                    //             console.log(userInput);
 
                     // var latlng = pos.toString(); {
                     $("#latlng").val(lat + " & " + lng);
@@ -74,24 +73,22 @@ function initMap() {
                         $.ajax({
                                 url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
                                 type: 'GET',
+
                             })
                             .done(function(response) {
+                                       	   for (var i = 0; i < 5; i++) {
+                                               response.data[i];
+                                               console.log([i]);
 
-                                console.log(response);
-                                console.log(response.data.name);
-                                console.log(response.data.id);
+                                           }
+
+                              //  console.log(response);
+                              //  console.log(response.data.name);
+                              //  console.log(response.data.id);
+
+
                                 var locationID = response.data.id;
                                 searchLocationID(locationID);
-                                //           createLocationButton();
-
-                                //                 function(createLocationButton) {
-                                //                     for (var i = 0; i < response.length; i++) {
-                                //                         response[i];
-                                //                         $("<button>")
-                                //                             .addClass("locationButton btn btn-success")
-                                //                             .text(response[i])
-                                //                             .appendTo("#buttonPanel");
-                                //                         console.log(createLocationButton);
 
                             });
 
@@ -109,7 +106,7 @@ function initMap() {
 
 
 
-// need an on click function for the multiple buttons generated from the searchIGLocation function
+                // need an on click function for the multiple buttons generated from the searchIGLocation function
 
                 function searchLocationID(locationID) {
 
@@ -118,7 +115,7 @@ function initMap() {
                             type: 'GET',
                         })
                         .done(function(result) {
-                            console.log(result);
+                            //                       console.log(result);
                         })
                 }
 

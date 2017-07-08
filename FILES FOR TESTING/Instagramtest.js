@@ -4,7 +4,7 @@ $.ajax({
     type: "GET",
     url: query2
 }).done(function(result) {
-    console.log(result.data);
+//    console.log(result.data);
 })
 
 
@@ -62,7 +62,7 @@ function initMap() {
                 };
 
 
-                console.log(pos);
+ //               console.log(pos);
                 //  console.log("lat=" + pos.lat);
                 //  console.log("lng=" + pos.lng);
 
@@ -70,11 +70,11 @@ function initMap() {
 
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
-                    console.log(lat);
+ //                   console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
-                    console.log(lng);
+ //                   console.log(lng);
                     var userInput = lat + "&" + lng;
-                    console.log(userInput);
+ //                   console.log(userInput);
 
                     // var latlng = pos.toString(); {
 
@@ -99,9 +99,14 @@ function initMap() {
                                 type: 'GET',
                             })
                             .done(function(response) {
+                                 for (var i = 0; i < 5; i++) {
+                                               response[i];
+                                               console.log(response.data[i]);
+
+                                           }
                                 console.log(response);
                                 console.log(response.data[0].name);
-                                console.log(response.data[0].id);
+                               console.log(response.data[0].id);
 
 
                             })
