@@ -7,7 +7,7 @@ $.ajax({
     console.log(result.data);
 })
 
-    
+
 
 
 // saved royce.js files
@@ -132,13 +132,13 @@ function initMap() {
                             type: 'GET',
                         })
                         .done(function(result) {
-                            //             console.log(result.data);
+                            console.log(result.data);
                         })
                 }
 
 
 
-                
+
 
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Location found.');
