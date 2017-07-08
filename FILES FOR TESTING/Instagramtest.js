@@ -1,3 +1,17 @@
+var query2 = "https://api.instagram.com/v1/locations/search?lat=32.058393699999&lng=-81.1000519&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f"
+
+$.ajax({
+    type: "GET",
+    url: query2
+}).done(function(result) {
+//    console.log(result.data);
+})
+
+
+
+
+// saved royce.js files
+
 "use strict"
 //Google Reverse Geocoding
 
@@ -14,6 +28,7 @@
 //website = https://developers.google.com/maps/documentation/javascript/geolocation
 //key = AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug
 
+//>>>>>>> b7e4063169a3d75a5be41d517a8371a5a507802e
 
 // Geolocation API Specification 2nd Edition
 // https://www.w3.org/TR/geolocation-API/
@@ -26,9 +41,11 @@ var infoWindow;
 var pos;
 var lat;
 var lng;
-var locationID;
+
 
 function initMap() {
+
+
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
@@ -45,24 +62,32 @@ function initMap() {
                 };
 
 
-                //         console.log(pos);
+ //               console.log(pos);
+                //  console.log("lat=" + pos.lat);
+                //  console.log("lng=" + pos.lng);
+
+
 
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
-                    //             console.log(lat);
+ //                   console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
-                    //             console.log(lng);
+ //                   console.log(lng);
                     var userInput = lat + "&" + lng;
-                    //             console.log(userInput);
+ //                   console.log(userInput);
 
                     // var latlng = pos.toString(); {
+
                     $("#latlng").val(lat + " & " + lng);
 
 
                     //  function calling Instagram locations/search API
+
+
                     $("#submit").on("click", function(getIGlocation) {
 
 
+                        //            var userInput = $(this).text();
                         searchIGlocation(userInput);
                     });
 
@@ -72,25 +97,23 @@ function initMap() {
                         $.ajax({
                                 url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
                                 type: 'GET',
-
                             })
                             .done(function(response) {
-                                       	   for (var i = 0; i < 5; i++) {
-                                               response.data[i];
-                                               console.log([i]);
+                                 for (var i = 0; i < 5; i++) {
+                                               response[i];
+                                               console.log(response.data[i]);
 
                                            }
+                                console.log(response);
+                                console.log(response.data[0].name);
+                               console.log(response.data[0].id);
 
-                              //  console.log(response);
-                              //  console.log(response.data.name);
-                              //  console.log(response.data.id);
 
+                            })
 
-                                var locationID = response.data.id;
-                                searchLocationID(locationID);
-
-                            });
-
+                        //            	var IGid = data.[0].id;
+                        //                  searchLocationID(response);
+                        //                  console.log(IGid);
                     }
                 }
 
@@ -105,20 +128,22 @@ function initMap() {
 
 
 
-                // need an on click function for the multiple buttons generated from the searchIGLocation function
+
 
                 function searchLocationID(locationID) {
 
                     $.ajax({
-                            url: "https://api.instagram.com/v1/locations/" + locationID + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                            url: "https://api.instagram.com/v1/locations/" + locationID.name + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
                             type: 'GET',
                         })
                         .done(function(result) {
-                            //                       console.log(result);
+                            console.log(result.data);
                         })
                 }
 
-                searchLocationID();
+
+
+
 
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Location found.');
@@ -144,3 +169,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 };
 
 // end Google geoLocation script
+//>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
