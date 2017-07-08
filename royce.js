@@ -31,8 +31,6 @@ var locationID;
 
 function initMap() {
 
-
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 6
@@ -48,16 +46,15 @@ function initMap() {
                 };
 
 
-                console.log(pos);
-
+                //         console.log(pos);
 
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
-                    console.log(lat);
+                    //             console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
-                    console.log(lng);
+                    //             console.log(lng);
                     var userInput = lat + "&" + lng;
-                    console.log(userInput);
+                    //             console.log(userInput);
 
                     // var latlng = pos.toString(); {
                     $("#latlng").val(lat + " & " + lng);
@@ -83,31 +80,21 @@ function initMap() {
 
                             })
                             .done(function(response) {
-                                
-                                for (var i = 0; i < 5; i++) {
-                                    Things[i]
-                                }
+                                       	   for (var i = 0; i < 5; i++) {
+                                               response.data[i];
+                                               console.log([i]);
+
+                                           }
+
+                              //  console.log(response);
+                              //  console.log(response.data.name);
+                              //  console.log(response.data.id);
 
 
 
-
-                                console.log(response);
-                                console.log(response.data.name);
-                                console.log(response.data.id);
                                 var locationID = response.data.id;
                                 searchLocationID(locationID);
 
-
-                                //           createLocationButton();
-
-                                //                 function(createLocationButton) {
-                                //                     for (var i = 0; i < response.length; i++) {
-                                //                         response[i];
-                                //                         $("<button>")
-                                //                             .addClass("locationButton btn btn-success")
-                                //                             .text(response[i])
-                                //                             .appendTo("#buttonPanel");
-                                //                         console.log(createLocationButton);
 
                             });
 
@@ -125,7 +112,7 @@ function initMap() {
 
 
 
-
+                // need an on click function for the multiple buttons generated from the searchIGLocation function
 
                 function searchLocationID(locationID) {
 
@@ -134,7 +121,7 @@ function initMap() {
                             type: 'GET',
                         })
                         .done(function(result) {
-                            console.log(result);
+                            //                       console.log(result);
                         })
                 }
 

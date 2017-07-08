@@ -4,12 +4,11 @@ $.ajax({
     type: "GET",
     url: query2
 }).done(function(result) {
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < 6; i++) {
 		result[i];
 		console.log(result.data[i]);
 
 	}
-    
 })
 
 
@@ -67,7 +66,7 @@ function initMap() {
                 };
 
 
-                console.log(pos);
+ //               console.log(pos);
                 //  console.log("lat=" + pos.lat);
                 //  console.log("lng=" + pos.lng);
 
@@ -75,11 +74,11 @@ function initMap() {
 
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
-                    console.log(lat);
+ //                   console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
-                    console.log(lng);
+ //                   console.log(lng);
                     var userInput = lat + "&" + lng;
-                    console.log(userInput);
+ //                   console.log(userInput);
 
                     // var latlng = pos.toString(); {
 
@@ -97,6 +96,25 @@ function initMap() {
                     });
 
 
+<<<<<<< HEAD
+=======
+                    function searchIGlocation(userInput) {
+
+                        $.ajax({
+                                url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                                type: 'GET',
+                            })
+                            .done(function(response) {
+                                 for (var i = 0; i < 5; i++) {
+                                               response[i];
+                                               console.log(response.data[i]);
+
+                                           }
+                                console.log(response);
+                                console.log(response.data[0].name);
+                               console.log(response.data[0].id);
+
+>>>>>>> 6159926e1305f08522f9c852b3988503775934f5
 
 
                         //            	var IGid = data.[0].id;
