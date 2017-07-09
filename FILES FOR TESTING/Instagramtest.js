@@ -122,6 +122,7 @@ function initMap() {
                                     createLocationButton();
                                 }
 
+
                             })
 
                         //              var IGid = data.[0].id;
