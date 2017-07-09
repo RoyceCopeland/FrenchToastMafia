@@ -88,7 +88,6 @@ function initMap() {
                     $("#submit").on("click", function(getIGlocation) {
 
 
-                        //            var userInput = $(this).text();
                         searchIGlocation(userInput);
                     });
 
@@ -102,25 +101,28 @@ function initMap() {
                             .done(function(response) {
                                 for (var i = 0; i < 6; i++) {
                                     response[i];
-                                    //  console.log(response.data[i]);
-                                    //   console.log(response);
+                            //        console.log(response.data[i]);
+                             //          console.log(response);
                                     console.log(response.data[i].name);
-                                    console.log(response.data[i].id);
+                                  //  console.log(response.data[i].id);
+                                    var boogers = response.data[i].name;
+                                    var snot = response.data[i].id;
+
+                                    function createLocationButton() {
+                                        $("#buttonPanel").html();
+                                        for (var i = 0; i < boogers.length; i++) {
+                                            boogers;
+                                            $("<button>")
+                                                .addClass("locationButton btn btn-success")
+                                                .text(boogers)
+                                           //     .value(snot[i])
+                                                .appendTo(".locationResults");
+                                        };
+                                    };
+                                    createLocationButton();
 
                                 }
 
-                                function createLocationButton() {
-                                    $("#buttonPanel").empty();
-                                    for (var i = 0; i < response.length; i++) {
-                                        response[i];
-                                        $("<button>")
-                                            .addClass("locationButton btn btn-success")
-                                            .text(response.data[i].name)
-                                            .value(response.data[i].id)
-                                            .appendTo(".locationResults");
-                                    };
-                                };
-                                createLocationButton();
                             })
 
                         //              var IGid = data.[0].id;
