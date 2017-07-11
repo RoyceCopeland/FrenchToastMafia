@@ -1,11 +1,11 @@
-var query2 = "https://api.instagram.com/v1/locations/search?lat=32.058393699999&lng=-81.1000519&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f"
-
-$.ajax({
-    type: "GET",
-    url: query2
-}).done(function(result) {
-//    console.log(result.data);
-})
+//var query2 = "https://api.instagram.com/v1/locations/search?lat=32.058393699999&lng=-81.1000519&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f"
+//
+//$.ajax({
+//    type: "GET",
+//    url: query2
+//}).done(function(result) {
+//    //    console.log(result.data);
+//})
 
 
 
@@ -13,12 +13,13 @@ $.ajax({
 // saved royce.js files
 
 "use strict"
+
 //Google Reverse Geocoding
 
 /*
 *
 * ON OPEN --> Access the phone/laptops's GPS coordinates through Google
-	Trigger the Google Reverse Geocoding API to get specific address
+    Trigger the Google Reverse Geocoding API to get specific address
 *
 *
 */
@@ -62,7 +63,7 @@ function initMap() {
                 };
 
 
- //               console.log(pos);
+                //               console.log(pos);
                 //  console.log("lat=" + pos.lat);
                 //  console.log("lng=" + pos.lng);
 
@@ -70,11 +71,11 @@ function initMap() {
 
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
- //                   console.log(lat);
+                    //                   console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
- //                   console.log(lng);
+                    //                   console.log(lng);
                     var userInput = lat + "&" + lng;
- //                   console.log(userInput);
+                    //                   console.log(userInput);
 
                     // var latlng = pos.toString(); {
 
@@ -87,7 +88,6 @@ function initMap() {
                     $("#submit").on("click", function(getIGlocation) {
 
 
-                        //            var userInput = $(this).text();
                         searchIGlocation(userInput);
                     });
 
@@ -99,29 +99,43 @@ function initMap() {
                                 type: 'GET',
                             })
                             .done(function(response) {
-                                 for (var i = 0; i < 5; i++) {
-                                               response[i];
-                                               console.log(response.data[i]);
+                                for (var i = 0; i < 6; i++) {
+                                    response[i];
+                            //        console.log(response.data[i]);
+                             //          console.log(response);
+                                    console.log(response.data[i].name);
+                                  //  console.log(response.data[i].id);
+                                    var boogers = response.data[i].name;
+                                    var snot = response.data[i].id;
 
-                                           }
-                                console.log(response);
-                                console.log(response.data[0].name);
-                               console.log(response.data[0].id);
+                                    function createLocationButton() {
+                                        $("#buttonPanel").html();
+                                        for (var i = 0; i < boogers.length; i++) {
+                                            boogers;
+                                            $("<button>")
+                                                .addClass("locationButton btn btn-success")
+                                                .text(boogers)
+                                           //     .value(snot[i])
+                                                .appendTo(".locationResults");
+                                        };
+                                    };
+                                    createLocationButton();
+                                }
 
 
                             })
 
-                        //            	var IGid = data.[0].id;
+                        //              var IGid = data.[0].id;
                         //                  searchLocationID(response);
                         //                  console.log(IGid);
                     }
                 }
 
                 // pulls array of objects containing ...
-                // 	id: ""
-                //	latitude:
-                //	longitude:
-                //	name: ""
+                //  id: ""
+                //  latitude:
+                //  longitude:
+                //  name: ""
 
                 // dynamically create a button for each name of the top 10 objects with
                 // Instagram ID info attached as a value(?)

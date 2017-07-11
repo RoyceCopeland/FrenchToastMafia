@@ -1,4 +1,5 @@
 "use strict"
+
 //Google Reverse Geocoding
 
 /*
@@ -82,7 +83,7 @@ function initMap() {
                             .done(function(response) {
                                        	   for (var i = 0; i < 5; i++) {
                                                response.data[i];
-                                               console.log([i]);
+                   //                            console.log([i]);
 
                                            }
 
