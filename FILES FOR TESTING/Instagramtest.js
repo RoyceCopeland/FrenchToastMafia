@@ -174,6 +174,7 @@ function initMap() {
 
 
 
+
                         infoWindow.setPosition(pos); infoWindow.setContent('Location found.'); infoWindow.open(map); map.setCenter(pos);
                     },
                     function() {
@@ -196,4 +197,4 @@ function initMap() {
     };
 
     // end Google geoLocation script
-    //>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+
