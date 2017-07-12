@@ -15,7 +15,6 @@
 //website = https://developers.google.com/maps/documentation/javascript/geolocation
 //key = AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug
 
-//>>>>>>> b7e4063169a3d75a5be41d517a8371a5a507802e
 
 // Geolocation API Specification 2nd Edition
 // https://www.w3.org/TR/geolocation-API/
