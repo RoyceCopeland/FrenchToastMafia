@@ -57,107 +57,107 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
 
 
-            //              console.log(pos);
-            //  console.log("lat=" + pos.lat);
-            //  console.log("lng=" + pos.lng);
-
-
-
-            // stringify to change the value into a string
-            var lat = "lat=" + pos.lat.toString(); {
-                //                   console.log(lat);
-                var lng = "lng=" + pos.lng.toString();
-                //                   console.log(lng);
-                var userInput = lat + "&" + lng;
-                //                   console.log(userInput);
-
-                // var latlng = pos.toString(); {
-
-                $("#latlng").val(lat + " & " + lng);
-
-
-                //  function calling Instagram locations/search API
-
-
-                $("#submit").on("click", function(getIGlocation) {
-
-
-                    searchIGlocation(userInput);
-                });
-
-                // pulls array of objects containing ...
-                //  id: ""
-                //  latitude:
-                //  longitude:
-                //  name: ""
-
-
-                function searchIGlocation(userInput) {
-
-                    $.ajax({
-                            url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                            type: 'GET',
-                        })
-                        .done(function(response) {
-                            for (var i = 0; i < 6; i++) {
-                                response[i];
-                                console.log(response.data[i]);
-                                //       console.log(response.data[i].name);
-                                //       console.log(response.data[i].id);
-                                var boogers = response.data[i].name;
-                                //"chatham county"
-                                var snot = response.data[i].id;
-
-
-                                // dynamically create a button for each name of the top 10 objects with
-                                // Instagram ID info attached as a value(?)
-                                function createLocationButton() {
-                                    $("#buttonPanel").html();
-                                    // for (var i = 0; i < 14; i++) {
-                                    boogers;
-                                    $("<button>")
-                                        .addClass("locationButton btn btn-success")
-                                        .text(boogers)
-                                        .attr('data-id',snot)
-                                        .appendTo(".locationResults");
-
-                                    // };
-                                };
-                                createLocationButton();
-                            }
-
-                        })
-
-
-                }
-            
-
-            // create document click event to send the clicked button's associated Instagram ID to 
-            // the searchLocation(locationID) function. This will call the Instagram API to find
-            // photos taken at that specific location
-        };
+                //              console.log(pos);
+                //  console.log("lat=" + pos.lat);
+                //  console.log("lng=" + pos.lng);
 
 
 
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        infoWindow.open(map);
-        map.setCenter(pos);
-    },
-    function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-    });
+                // stringify to change the value into a string
+                var lat = "lat=" + pos.lat.toString(); {
+                    //                   console.log(lat);
+                    var lng = "lng=" + pos.lng.toString();
+                    //                   console.log(lng);
+                    var userInput = lat + "&" + lng;
+                    //                   console.log(userInput);
 
-} else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-}
+                    // var latlng = pos.toString(); {
+
+                    $("#latlng").val(lat + " & " + lng);
+
+
+                    //  function calling Instagram locations/search API
+
+
+                    $("#submit").on("click", function(getIGlocation) {
+
+
+                        searchIGlocation(userInput);
+                    });
+
+                    // pulls array of objects containing ...
+                    //  id: ""
+                    //  latitude:
+                    //  longitude:
+                    //  name: ""
+
+
+                    function searchIGlocation(userInput) {
+
+                        $.ajax({
+                                url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+                                type: 'GET',
+                            })
+                            .done(function(response) {
+                                for (var i = 0; i < 6; i++) {
+                                    response[i];
+                                    console.log(response.data[i]);
+                                    //       console.log(response.data[i].name);
+                                    //       console.log(response.data[i].id);
+                                    var boogers = response.data[i].name;
+                                    //"chatham county"
+                                    var snot = response.data[i].id;
+
+
+                                    // dynamically create a button for each name of the top 10 objects with
+                                    // Instagram ID info attached as a value(?)
+                                    function createLocationButton() {
+                                        $("#buttonPanel").html();
+                                        // for (var i = 0; i < 14; i++) {
+                                        boogers;
+                                        $("<button>")
+                                            .addClass("locationButton btn btn-success")
+                                            .text(boogers)
+                                            .attr('data-id', snot)
+                                            .appendTo(".locationResults");
+
+                                        // };
+                                    };
+                                    createLocationButton();
+                                }
+
+                            })
+
+
+                    }
+
+
+                    // create document click event to send the clicked button's associated Instagram ID to 
+                    // the searchLocation(locationID) function. This will call the Instagram API to find
+                    // photos taken at that specific location
+                };
+
+
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            },
+            function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
 };
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -169,38 +169,47 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 };
 
 $("#buttonPanel").on("click", ".locationButton", function(locationButtonClicked) {
-            console.log($(this));
+    console.log($(this));
 
-            var locationID = $(this).attr('data-id');
-            console.log(locationID);
+    var locationID = $(this).attr('data-id');
+    console.log(locationID);
 
 
-            searchLocationID(locationID);
+    searchLocationID(locationID);
 
-            //              var IGid = data.[0].id;
-            //                  searchLocationID(response);
-            //                  console.log(IGid);
+    //              var IGid = data.[0].id;
+    //                  searchLocationID(response);
+    //                  console.log(IGid);
 
 });
 
 
-                        infoWindow.setPosition(pos); infoWindow.setContent('Location found.'); infoWindow.open(map); map.setCenter(pos);
-                    },
-                    function() {
-                        handleLocationError(true, infoWindow, map.getCenter());
-                    });
+function searchLocationID(locationID) {
 
-            function searchLocationID(locationID) {
+    $.ajax({
+            url: "https://api.instagram.com/v1/locations/" + locationID + "/media/recent?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+            type: 'GET'
+        })
+        .done(function(result) {
+            console.log(result.data);
+            displayPhoto(result)
+        });
 
-                $.ajax({
-                     url: "https://api.instagram.com/v1/locations/" + locationID + "/media/recent?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                     type: 'GET',
-                 })
-                 .done(function(result) {
-                     console.log(result.data);
-                })
-         }
+    function displayPhoto(result) {
+        console.log("I'm here");
+        $(".photoResults").empty();
+        for (var i = 0; i < result.data.length; i++) {
+            var image = '<img src= "' + result.data[i].images.standard_resolution.url + '" />';
+            console.log("img", image);   
+            $(".photoResults").append(image);
 
-            // end Google geoLocation script
-            //>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+
+
+
+    }
+}
+};
+
+    // end Google geoLocation script
+    //>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
 
