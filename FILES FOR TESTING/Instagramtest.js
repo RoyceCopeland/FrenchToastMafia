@@ -184,6 +184,12 @@ $("#buttonPanel").on("click", ".locationButton", function(locationButtonClicked)
 });
 
 
+                        infoWindow.setPosition(pos); infoWindow.setContent('Location found.'); infoWindow.open(map); map.setCenter(pos);
+                    },
+                    function() {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+
             function searchLocationID(locationID) {
 
                 $.ajax({
@@ -197,3 +203,4 @@ $("#buttonPanel").on("click", ".locationButton", function(locationButtonClicked)
 
             // end Google geoLocation script
             //>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+

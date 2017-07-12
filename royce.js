@@ -5,7 +5,7 @@
 /*
 *
 * ON OPEN --> Access the phone/laptops's GPS coordinates through Google
-	Trigger the Google Reverse Geocoding API to get specific address
+    Trigger the Google Reverse Geocoding API to get specific address
 *
 *
 */
@@ -75,6 +75,10 @@ function initMap() {
                                 url: "https://api.instagram.com/v1/locations/search?" + userInput + "&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
                                 type: 'GET',
 
+
+
+
+
                             })
                             .done(function(response) {
                                        	   for (var i = 0; i < 5; i++) {
@@ -88,8 +92,10 @@ function initMap() {
                               //  console.log(response.data.id);
 
 
+
                                 var locationID = response.data.id;
                                 searchLocationID(locationID);
+
 
                             });
 
@@ -97,10 +103,10 @@ function initMap() {
                 }
 
                 // pulls array of objects containing ...
-                // 	id: ""
-                //	latitude:
-                //	longitude:
-                //	name: ""
+                //  id: ""
+                //  latitude:
+                //  longitude:
+                //  name: ""
 
                 // dynamically create a button for each name of the top 10 objects with
                 // Instagram ID info attached as a value(?)
