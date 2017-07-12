@@ -195,18 +195,21 @@ function searchLocationID(locationID) {
             displayPhoto(result)
         });
 
-    function displayPhoto(response) {
+    function displayPhoto(result) {
+        console.log("I'm here");
         $(".photoResults").empty();
-        for (var i = 0; i < response.data.length; i++) {
-            var image = '<img src= "' + response.data[i].images.standard_resolution.url + '" />';
-
+        for (var i = 0; i < result.data.length; i++) {
+            var image = '<img src= "' + result.data[i].images.standard_resolution.url + '" />';
+            console.log("img", image);   
             $(".photoResults").append(image);
-        }
+
 
 
 
     }
 }
+};
 
     // end Google geoLocation script
     //>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+
