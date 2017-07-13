@@ -1,11 +1,11 @@
-var query2 = "https://api.instagram.com/v1/locations/search?lat=32.058393699999&lng=-81.1000519&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f"
-
-$.ajax({
-    type: "GET",
-    url: query2
-}).done(function(result) {
-//    console.log(result.data);
-})
+//var query2 = "https://api.instagram.com/v1/locations/search?lat=32.058393699999&lng=-81.1000519&access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f"
+//
+//$.ajax({
+//    type: "GET",
+//    url: query2
+//}).done(function(result) {
+//    //    console.log(result.data);
+//})
 
 
 
@@ -13,12 +13,13 @@ $.ajax({
 // saved royce.js files
 
 "use strict"
+
 //Google Reverse Geocoding
 
 /*
 *
 * ON OPEN --> Access the phone/laptops's GPS coordinates through Google
-	Trigger the Google Reverse Geocoding API to get specific address
+    Trigger the Google Reverse Geocoding API to get specific address
 *
 *
 */
@@ -62,7 +63,7 @@ function initMap() {
                 };
 
 
- //               console.log(pos);
+                //              console.log(pos);
                 //  console.log("lat=" + pos.lat);
                 //  console.log("lng=" + pos.lng);
 
@@ -70,11 +71,11 @@ function initMap() {
 
                 // stringify to change the value into a string
                 var lat = "lat=" + pos.lat.toString(); {
- //                   console.log(lat);
+                    //                   console.log(lat);
                     var lng = "lng=" + pos.lng.toString();
- //                   console.log(lng);
+                    //                   console.log(lng);
                     var userInput = lat + "&" + lng;
- //                   console.log(userInput);
+                    //                   console.log(userInput);
 
                     // var latlng = pos.toString(); {
 
@@ -87,9 +88,14 @@ function initMap() {
                     $("#submit").on("click", function(getIGlocation) {
 
 
-                        //            var userInput = $(this).text();
                         searchIGlocation(userInput);
                     });
+
+                    // pulls array of objects containing ...
+                    //  id: ""
+                    //  latitude:
+                    //  longitude:
+                    //  name: ""
 
 
                     function searchIGlocation(userInput) {
@@ -99,49 +105,43 @@ function initMap() {
                                 type: 'GET',
                             })
                             .done(function(response) {
-                                 for (var i = 0; i < 5; i++) {
-                                               response[i];
-                                               console.log(response.data[i]);
+                                for (var i = 0; i < 6; i++) {
+                                    response[i];
+                                    console.log(response.data[i]);
+                                    //       console.log(response.data[i].name);
+                                    //       console.log(response.data[i].id);
+                                    var boogers = response.data[i].name;
+                                    //"chatham county"
+                                    var snot = response.data[i].id;
 
-                                           }
-                                console.log(response);
-                                console.log(response.data[0].name);
-                               console.log(response.data[0].id);
 
+                                    // dynamically create a button for each name of the top 10 objects with
+                                    // Instagram ID info attached as a value(?)
+                                    function createLocationButton() {
+                                        $("#buttonPanel").html();
+                                        // for (var i = 0; i < 14; i++) {
+                                        boogers;
+                                        $("<button>")
+                                            .addClass("locationButton btn btn-success")
+                                            .text(boogers)
+                                            .attr('data-id', snot)
+                                            .appendTo(".locationResults");
+
+                                        // };
+                                    };
+                                    createLocationButton();
+                                }
 
                             })
 
-                        //            	var IGid = data.[0].id;
-                        //                  searchLocationID(response);
-                        //                  console.log(IGid);
+
                     }
-                }
-
-                // pulls array of objects containing ...
-                // 	id: ""
-                //	latitude:
-                //	longitude:
-                //	name: ""
-
-                // dynamically create a button for each name of the top 10 objects with
-                // Instagram ID info attached as a value(?)
 
 
-
-
-
-                function searchLocationID(locationID) {
-
-                    $.ajax({
-                            url: "https://api.instagram.com/v1/locations/" + locationID.name + "?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
-                            type: 'GET',
-                        })
-                        .done(function(result) {
-                            console.log(result.data);
-                        })
-                }
-
-
+                    // create document click event to send the clicked button's associated Instagram ID to 
+                    // the searchLocation(locationID) function. This will call the Instagram API to find
+                    // photos taken at that specific location
+                };
 
 
 
@@ -168,5 +168,122 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 };
 
-// end Google geoLocation script
-//>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+$("#buttonPanel").on("click", ".locationButton", function(locationButtonClicked) {
+    console.log($(this));
+
+    var locationID = $(this).attr('data-id');
+    console.log(locationID);
+
+
+    searchLocationID(locationID);
+
+    //              var IGid = data.[0].id;
+    //                  searchLocationID(response);
+    //                  console.log(IGid);
+
+});
+
+
+function searchLocationID(locationID) {
+
+    $.ajax({
+            url: "https://api.instagram.com/v1/locations/" + locationID + "/media/recent?access_token=11365483.e029fea.400aa91f28dc4af2b06acdc6ad7dfd4f",
+            type: 'GET'
+        })
+        .done(function(result) {
+            console.log(result.data);
+            displayPhoto(result)
+        });
+
+    function displayPhoto(result) {
+        console.log("I'm here");
+        $(".photoResults").empty();
+        for (var i = 0; i < result.data.length; i++) {
+            var image = '<img src= "' + result.data[i].images.standard_resolution.url + '" />';
+            console.log("img", image);   
+            $(".photoResults").append(image);
+
+
+
+
+    }
+}
+};
+
+(function() {
+
+  var streaming = false,
+    video = document.querySelector('#video'),
+    canvas = document.querySelector('#canvas'),
+    buttoncontent = document.querySelector('#buttoncontent'),
+    photo = document.querySelector('#photo'),
+    startbutton = document.querySelector('#startbutton'),
+    width = 320,
+    height = 0;
+
+  navigator.getMedia = (navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
+
+  navigator.getMedia({
+      video: true,
+      audio: false
+    },
+    function(stream) {
+      if (navigator.mozGetUserMedia) {
+        video.mozSrcObject = stream;
+      } else {
+        var vendorURL = window.URL || window.webkitURL;
+        video.src = vendorURL.createObjectURL(stream);
+      }
+      video.play();
+    },
+    function(err) {
+      console.log("An error occured! " + err);
+    }
+  );
+
+  video.addEventListener('canplay', function(ev) {
+    if (!streaming) {
+      height = video.videoHeight / (video.videoWidth / width);
+      video.setAttribute('width', width);
+      video.setAttribute('height', height);
+      canvas.setAttribute('width', width);
+      canvas.setAttribute('height', height);
+      streaming = true;
+    }
+  }, false);
+
+  function takepicture() {
+    video.style.display = "none";
+    canvas.style.display = "block";
+    startbutton.innerText= "RETAKE";
+    canvas.width = width;
+    canvas.height = height;
+    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+    var data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
+  }
+
+  startbutton.addEventListener('click', function(ev) {
+    if(startbutton.innerText==="CAPTURE")
+    {
+      takepicture();
+    }
+    else
+    {
+      video.style.display = "block";
+      canvas.style.display = "none";
+      startbutton.innerText= "CAPTURE";
+    }
+    ev.preventDefault();
+  }, false);
+
+})();
+
+
+
+    // end Google geoLocation script
+    //>>>>>>> ad9eb45a7f52c3b0a450fd298a262ba39a442d9a
+

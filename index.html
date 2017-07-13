@@ -18,6 +18,9 @@
             <div class="col-md-6" id="circleWorld">
                 <img src="images/circleWorld.png" width="500" height="275" alt="Crazy Picture of Earth">
             </div>
+            <div class='pin'></div>
+            <div class='pulse'></div>
+
 
             <div class="col-md-6" id="vertical">
                 <div class="row">
@@ -57,24 +60,42 @@
 
 
 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Temporary container to hold returned Instagram photos</h3>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 id="buttonPanel" class="panel-title">Temporary container to hold location results dynamically created buttons</h3>
+            <div class="panel-body">
+                <div id="photoPanel" class="photoResults"></div>
+            </div>
+        </div>
+        <b></b>
+        <button type="button" id="canButton" class="btn btn-warning">Press This Button To Activate Your Camera and Take a Damn Picture</button>
+        <b></b>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Temporary container to hold camera feed</h3>
+            </div>
+            <div class="panel-body">
+                <div id="cameraPanel" class="cameraFeed"></div>
+                <video id="video"></video>
+                <canvas id="canvas" style="display:none;"></canvas>
+                <div id="buttoncontent">
                 </div>
-                <div id="locationResults" class="panel-body">
-                </div>
+                <button id="startbutton">CAPTURE</button>
             </div>
-            <p></p>
-            <div>
-                <h1 id="fireLocation">Here you are!</h1>
-            </div>
-            <!--div referencing the google firing point (currentLocation)-->
-            <div id="currentLocation"></div>
-            <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
-            <div id="globalCoordinats"></div>
-            <div id="whoElse"></div>
-            <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
+        </div>
+    </div>
+    <p></p>
+    <div>
+        <h1 id="fireLocation">"x"</h1>
+    </div>
+    <!--div referencing the google firing point (currentLocation)-->
+    <div id="currentLocation"></div>
+    <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
+    <div id="globalCoordinats"></div>
+    <div id="whoElse"></div>
+    <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
+
 
 
         
@@ -82,6 +103,14 @@
         <!--We've got to figure out how to access the computer camera to align with the selected image-->
         <!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
         <div id="score"></div>
+
+
+        <!-user selectes favorite image to mimic and a new page opens-->
+    <h1 id="precision">"x"</h1>
+    <!--image will pretty much take up the entire page other than the border and h1 and some cool surrounding css.-->
+    <!--We've got to figure out how to access the computer camera to align with the selected image-->
+    <!--Hopefully we get this far... but adding a score system on the bottom will be cool I think-->
+    <div id="score"></div>
 
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
