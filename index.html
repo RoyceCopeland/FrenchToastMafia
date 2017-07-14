@@ -5,68 +5,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>French Toast Mafia</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-
-    <!--container: the map is just for show as well as the pin drop.-->
     <div class="container">
-        <div class="row" id="currentLocation">
-            <div class="col-md-6" id="circleWorld">
-                <img src="images/circleWorld.png" width="500" height="275" alt="Crazy Picture of Earth">
-            </div>
-
-            <div class='pin'></div>
-            <div class='pulse'></div>
+      
 
 
-
-            <div class="col-md-6" id="vertical">
-                <div class="row">
-                    <div class= "col-md-12" id="fireLocation">
-                        <h1>Here you are!</h1>
-                    </div>
+        <div class="row panel blue">
+            <div class="panel panel-default col-md-6">
+                <div id="map" class="panel-body">
                 </div>
-
-                <!--This is the actual firing of the user's location-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel-heading" id="location">
-                            <h3 class="panel-title">Temporary Google Reverse Geocoding panel</h3>
-                    
-                            <div id="floating-panel">
-                                <input id="latlng" type="text" value="">
-                                <input id="submit" type="button" value="Reverse Geocode">
-                            </div>
-                        </div>
+            </div>
+            <div class="panel panel-default col-md-6">
+                <div id="reverseGeocodingMap" class="panel-body">
+                    <h3 class="panel-title">Your Latitude and Longitude are</h3>
+                    <p></p>
+                    <input id="latlng" type="text" value="">
+                    <!--        </div>   -->
+                    <!--      <div class="panel panel-default col-md-6">  -->
+                    <p></p>
+                    <h4>Who else was here?</h4>
+                    <input id="submit" type="button" value="Submit Coordinates">
+                    <div class="panel-body">
+                        <div id="buttonPanel" class="locationResults"></div>
                     </div>
+                    <!--     </div> -->
                 </div>
             </div>
         </div>
-        
-        <!--divs confirming location (confirmLocation) and who else has been here (whoElse).  These will be buttons and they will be dynamically created in js-->
-        
-        <div class="row" id="whoElse">
-            <h1 id="precision">How Precise Can You Be? We Will See!</h1>
-            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
-            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
-            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
-            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
-            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
-            <img src="http://via.placeholder.com/150x150" alt="..." class="col-lg-2 col-md-4 col-sm-12 imgHold">
-        </div>
-        <!--After the location has been confirmed, when the whoElse button is clicked, 5 or so images in the currentLocation will appear using api->
+        <b></b>
+       
 
+        <div class="row panel turqoise">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="photoPanel" class="photoResults"></div>
+                </div>
 
-
-<<<<<<< HEAD
-=======
         
  
->>>>>>> f2e96c7bca29ec968e28ac9d80a3a3269fcf37b2
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Temporary container to hold returned Instagram photos</h3>
@@ -122,8 +102,8 @@
     <script type="text/javascript" src="FILES FOR TESTING/instagramtest.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Y41a6WTxCA3BOtxGkpjIZJXd7Rg6sug&callback=initMap">
     </script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+   
 </body>
 
 </html>
