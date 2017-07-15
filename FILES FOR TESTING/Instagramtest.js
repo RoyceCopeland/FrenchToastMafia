@@ -50,7 +50,7 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
-        zoom: 6
+        zoom: 10
     });
     infoWindow = new google.maps.InfoWindow;
 
@@ -170,9 +170,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $("#buttonPanel").on("click", ".locationButton", function(locationButtonClicked) {
     console.log($(this));
-
+window.location.href = "#photoPanel";
+//return false;
     var locationID = $(this).attr('data-id');
-    console.log(locationID);
+//    console.log(locationID);
 
 
     searchLocationID(locationID);
@@ -191,15 +192,15 @@ function searchLocationID(locationID) {
             type: 'GET'
         })
         .done(function(result) {
-            console.log(result.data);
+//            console.log(result.data);
             displayPhoto(result)
         });
 
     function displayPhoto(result) {
-        console.log("I'm here");
+ //       console.log("I'm here");
         $(".photoResults").empty();
         for (var i = 0; i < result.data.length; i++) {
-            var image = '<img src= "' + result.data[i].images.standard_resolution.url + '" />';
+            var image = '<img src= "' + result.data[i].images.low_resolution.url + '" />';
             console.log("img", image);   
             $(".photoResults").append(image);
 
@@ -209,6 +210,8 @@ function searchLocationID(locationID) {
     }
 }
 };
+
+// code for camera activation and photo capture
 
 (function() {
 
